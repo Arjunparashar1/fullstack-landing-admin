@@ -1,0 +1,58 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Dashboard - Admin Panel{% endblock %}
+
+{% block content %}
+<h1 class="h2 mb-4">Dashboard</h1>
+
+<div class="row g-4">
+    <div class="col-md-3">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-folder"></i> Projects</h5>
+                <h2 class="mb-0">{{ projects_count }}</h2>
+            </div>
+            <div class="card-footer">
+                <a href="{{ url_for('admin_projects') }}" class="text-white text-decoration-none">View All <i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-people"></i> Clients</h5>
+                <h2 class="mb-0">{{ clients_count }}</h2>
+            </div>
+            <div class="card-footer">
+                <a href="{{ url_for('admin_clients') }}" class="text-white text-decoration-none">View All <i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card text-white bg-info">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-envelope"></i> Contacts</h5>
+                <h2 class="mb-0">{{ contacts_count }}</h2>
+            </div>
+            <div class="card-footer">
+                <a href="{{ url_for('admin_contacts') }}" class="text-white text-decoration-none">View All <i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-mailbox"></i> Subscribers</h5>
+                <h2 class="mb-0">{{ subscribers_count }}</h2>
+            </div>
+            <div class="card-footer">
+                <a href="{{ url_for('admin_subscribers') }}" class="text-white text-decoration-none">View All <i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

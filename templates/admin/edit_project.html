@@ -1,0 +1,38 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Edit Project - Admin Panel{% endblock %}
+
+{% block content %}
+<h1 class="h2 mb-4">Edit Project</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <form method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="name" class="form-label">Project Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ project.name }}" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="5" required>{{ project.description }}</textarea>
+            </div>
+            
+            <div class="mb-3">
+                <label for="image" class="form-label">Project Image</label>
+                {% if project.image %}
+                    <div class="mb-2">
+                        <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.name }}" style="max-width: 200px; height: auto;" class="img-thumbnail">
+                    </div>
+                {% endif %}
+                <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                <small class="form-text text-muted">Leave empty to keep current image. Supported formats: PNG, JPG, JPEG, GIF, WEBP</small>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Update Project</button>
+            <a href="{{ url_for('admin_projects') }}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
